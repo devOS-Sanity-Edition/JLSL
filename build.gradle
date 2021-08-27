@@ -1,0 +1,23 @@
+plugins {
+    id 'groovy'
+    id 'java'
+}
+
+group 'devos'
+version '1.0-alpha.1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.codehaus.groovy:groovy-all:3.0.8'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+
+    implementation 'org.ow2.asm:asm:6.2.1'
+}
+
+test {
+    useJUnitPlatform()
+}
