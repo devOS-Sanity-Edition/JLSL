@@ -8,6 +8,9 @@ version '1.0-alpha.1'
 
 repositories {
     mavenCentral()
+    maven {
+        url "https://maven.devos.community/"
+    }
 }
 
 dependencies {
