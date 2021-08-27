@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'devos'
-version '1.0-alpha.1'
+version '1.0-alpha.2'
 
 repositories {
     mavenCentral()
@@ -20,6 +20,20 @@ dependencies {
 
     implementation 'org.ow2.asm:asm:6.2.1'
 }
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+//task customFatJar(type: Jar) {
+//    manifest {
+//        attributes 'Main-Class': 'devos.jlsl.NewTest'
+//    }
+//    baseName = 'JLSL'
+//    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+//    with jar
+//}
 
 test {
     useJUnitPlatform()
