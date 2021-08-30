@@ -9,27 +9,26 @@ import devos.jlsl.fragments.MethodCallFragment.InvokeTypes;
 
 public class JavaEncoder extends CodeEncoder
 {
-	public static boolean		   DEBUG		= true;
+	public static boolean DEBUG	= true;
 
-	private int					 indentation;
-	private NewClassFragment		currentClass;
-	private int					 currentLine;
-	private Stack<String>		   stack;
-	private Stack<String>		   typesStack;
-	private HashMap<String, String> name2type;
-	private HashMap<Object, String> constants;
-	private ArrayList<String>	   initialized;
-	private StartOfMethodFragment   currentMethod;
-	private boolean				 allowedToPrint;
-	private PrintWriter			 output;
-	private Stack<CodeFragment>	 waiting;
-	private Stack<String>		   newInstances;
-	public boolean				  interpreting = false;
-	private HashMap<String, String> imports;
+	private int							indentation;
+	private NewClassFragment			currentClass;
+	private int							currentLine;
+	private Stack<String>				stack;
+	private Stack<String>				typesStack;
+	private HashMap<String, String> 	name2type;
+	private HashMap<Object, String> 	constants;
+	private ArrayList<String> 			initialized;
+	private StartOfMethodFragment   	currentMethod;
+	private boolean						allowedToPrint;
+	private PrintWriter					output;
+	private Stack<CodeFragment>	 		waiting;
+	private Stack<String>		   		newInstances;
+	public boolean				  		interpreting = false;
+	private HashMap<String, String> 	imports;
 
-	private String				  classPackage;
-
-	private String				  className;
+	private String				  		classPackage;
+	private String				  		className;
 
 	public JavaEncoder(int glslversion)
 	{
