@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'devos'
-version '1.0-alpha.2'
+version '1.0-alpha.3'
 
 repositories {
     mavenCentral()
@@ -26,14 +26,18 @@ task sourcesJar(type: Jar, dependsOn: classes) {
     from sourceSets.main.allSource
 }
 
-//task customFatJar(type: Jar) {
-//    manifest {
-//        attributes 'Main-Class': 'devos.jlsl.NewTest'
-//    }
-//    baseName = 'JLSL'
-//    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
-//    with jar
-//}
+task fatJar(type: Jar) {
+    classifier = 'fat'
+    duplicatesStrategy = 'include'
+    manifest {
+        attributes(
+                'Main-Class': 'devos.jlsl.NewTest'
+        )
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
 
 test {
     useJUnitPlatform()
